@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <title>Mehmet Zeki Işıldak | Portfolio</title>
+    <style>
+        :root {
+            --bg: #f3fbff;
+            --bg-2: #eaf9ff;
+            --card: #ffffff;
+            --primary: #1d9bf0;
+            --primary-dark: #0f6fb5;
+            --secondary: #7fe7d6;
+            --text: #182331;
+            --muted: #516279;
+            --line: rgba(29, 155, 240, 0.12);
+            --shadow: 0 18px 40px rgba(11, 38, 58, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(180deg, #f4fbff 0%, #edf8ff 100%);
+            color: var(--text);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .topbar {
+            background: linear-gradient(135deg, #d7fff2 0%, #dff7ff 100%);
+            padding: 26px 0 0;
+        }
+
+        .nav-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            background: rgba(255,255,255,0.6);
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(8px);
+            padding: 18px 24px;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), #75d8ff);
+            color: white;
+            font-weight: 800;
+            box-shadow: 0 12px 22px rgba(29, 155, 240, 0.28);
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu li {
+            position: relative;
+        }
+
+        .menu a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text);
+            font-weight: 700;
+            padding: 11px 16px;
+            border-radius: 12px;
+            transition: 0.25s ease;
+        }
+
+        .menu a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border-radius: 999px;
+            padding: 12px 22px;
+            font-weight: 800;
+            transition: 0.25s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), #67d0fe);
+            color: white;
+            box-shadow: 0 16px 28px rgba(29, 155, 240, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 18px 32px rgba(29, 155, 240, 0.3);
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            align-items: center;
+            gap: 32px;
+            padding: 52px 20px 36px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            background: rgba(29, 155, 240, 0.1);
+            color: var(--primary-dark);
+            border: 1px solid rgba(29, 155, 240, 0.18);
+            border-radius: 999px;
+            padding: 8px 14px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-size: 0.76rem;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            line-height: 1.08;
+            letter-spacing: -0.05em;
+        }
+
+        h1 span {
+            color: var(--primary-dark);
+        }
+
+        .hero p {
+            color: var(--muted);
+            font-size: 1.08rem;
+            line-height: 1.8;
+            max-width: 650px;
+            margin: 22px 0 28px;
+        }
+
+        .cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-bottom: 28px;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--text);
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow);
+        }
+
+        .stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .stat {
+            min-width: 120px;
+            background: rgba(255,255,255,0.7);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 16px 18px;
+            box-shadow: 0 12px 24px rgba(17, 40, 62, 0.05);
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 1.6rem;
+            color: var(--primary-dark);
+            margin-bottom: 4px;
+        }
+
+        .stat span {
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .portrait-box {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .portrait-box::before {
+            content: "";
+            position: absolute;
+            inset: 8% 10% 6% 10%;
+            background: linear-gradient(135deg, rgba(29,155,240,0.28), rgba(127,231,214,0.4));
+            border-radius: 38% 62% 58% 42% / 42% 40% 60% 58%;
+            filter: blur(10px);
+        }
+
+        .portrait-card {
+            position: relative;
+            width: min(100%, 420px);
+            background: rgba(255,255,255,0.6);
+            border: 1px solid var(--line);
+            border-radius: 32px;
+            box-shadow: var(--shadow);
+            padding: 18px;
+            backdrop-filter: blur(8px);
+        }
+
+        .portrait-card img {
+            display: block;
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            border-radius: 24px;
+        }
+
+        .badge {
+            position: absolute;
+            right: 24px;
+            bottom: 24px;
+            background: rgba(255,255,255,0.9);
+            color: var(--text);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 12px 16px;
+            box-shadow: 0 12px 24px rgba(16, 34, 49, 0.1);
+            font-weight: 700;
+        }
+
+        .section {
+            padding: 28px 0 30px;
+        }
+
+        .section-head {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .section-head h2 {
+            font-size: clamp(2rem, 3vw, 2.7rem);
+            margin: 0 0 10px;
+        }
+
+        .section-head p {
+            color: var(--muted);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 28px;
+            align-items: stretch;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            padding: 26px 24px;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            margin-bottom: 14px;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            color: var(--muted);
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .skill {
+            background: linear-gradient(135deg, #eafcff, #e9f8ff);
+            border: 1px solid var(--line);
+            color: var(--primary-dark);
+            border-radius: 999px;
+            padding: 10px 16px;
+            font-weight: 700;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+            margin-top: 24px;
+        }
+
+        .project-card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            padding: 22px 20px;
+            transition: 0.28s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 22px 40px rgba(17, 40, 62, 0.14);
+        }
+
+        .project-card .icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, rgba(29,155,240,0.12), rgba(127,231,214,0.24));
+            color: var(--primary-dark);
+            font-size: 1.4rem;
+            margin-bottom: 18px;
+        }
+
+        .project-card h3 {
+            margin: 0 0 10px;
+            font-size: 1.35rem;
+        }
+
+        .project-card p {
+            color: var(--muted);
+            line-height: 1.7;
+            margin: 0 0 16px;
+        }
+
+        .project-card a {
+            color: var(--primary-dark);
+            font-weight: 800;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, var(--primary), #73d5fe);
+            border-radius: 28px;
+            padding: 30px 28px;
+            color: white;
+            box-shadow: 0 18px 36px rgba(29, 155, 240, 0.28);
+        }
+
+        .contact-box h3 {
+            margin: 0 0 10px;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+        }
+
+        .contact-box p {
+            margin: 0 0 18px;
+            color: rgba(255,255,255,0.88);
+            line-height: 1.7;
+        }
+
+        .contact-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .contact-actions a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            border-radius: 999px;
+            padding: 12px 18px;
+            font-weight: 700;
+        }
+
+        footer {
+            padding: 28px 20px 50px;
+            text-align: center;
+            color: var(--muted);
+            font-weight: 700;
+        }
+
+        @media (max-width: 900px) {
+            .hero,
+            .about-grid,
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .menu {
+                gap: 8px;
+            }
+
+            .menu a {
+                padding: 9px 12px;
+                font-size: 0.92rem;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .cta-row,
+            .contact-actions {
+                flex-direction: column;
+            }
+
+            .portrait-card img {
+                height: 420px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <div class="nav-wrap">
+            <nav class="nav" aria-label="Ana menü">
+                <div class="brand">MZ</div>
+                <ul class="menu">
+                    <li><a href="#home"><i class="fa-solid fa-house"></i> Anasayfa</a></li>
+                    <li><a href="#about"><i class="fa-solid fa-user"></i> Hakkımda</a></li>
+                    <li><a href="#projects"><i class="fa-solid fa-diagram-project"></i> Projeler</a></li>
+                    <li><a href="#contact"><i class="fa-solid fa-address-book"></i> İletişim</a></li>
+                </ul>
+                <a class="btn btn-primary" href="https://www.linkedin.com/in/mehmet-zeki-%C4%B1%C5%9F%C4%B1ldak-399a71384" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-linkedin"></i> LinkedIn
+                </a>
+            </nav>
+        </div>
+
+        <section class="hero" id="home">
+            <div>
+                <div class="eyebrow">Bilgisayar Mühendisi</div>
+                <h1>Merhaba, ben <span>Mehmet Zeki Işıldak</span></h1>
+                <p>
+                    Bilgisayar mühendisliği öğrencisiyim. Teknolojiye olan ilgim, problem çözme becerim ve yazılım geliştirme tutkumla birleşerek beni her gün daha çok geliştirmeye yönlendiriyor.
+                    Kod yazmayı, yeni fikirleri hayata geçirmeyi ve kullanıcı dostu çözümler üretmeyi seviyorum.
+                </p>
+
+                <div class="cta-row">
+                    <a class="btn btn-primary" href="#projects">Projelerim</a>
+                    <a class="btn btn-secondary" href="https://www.linkedin.com/in/mehmet-zeki-%C4%B1%C5%9F%C4%B1ldak-399a71384" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                </div>
+
+                <div class="stats">
+                    <div class="stat">
+                        <strong>1+</strong>
+                        <span>Yıl öğrenme</span>
+                    </div>
+                    <div class="stat">
+                        <strong>5+</strong>
+                        <span>Proje</span>
+                    </div>
+                    <div class="stat">
+                        <strong>full stack development </strong>
+                        <span>İlgi alanı</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portrait-box">
+                <div class="portrait-card">
+                    <img src="ben.jpg" alt="Mehmet Zeki Işıldak">
+                </div>
+            </div>
+        </section>
+    </header>
+
+    <main>
+        <section class="section" id="about">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Hakkımda</h2>
+                    <p>
+                        Bilgisayar bilimine meraklı, araştırmacı ve sürekli öğrenmeye açık bir öğrenciyim. Yazılım geliştirme, web tasarımı ve yapay zeka alanlarına ilgi duyuyorum.
+                    </p>
+                </div>
+
+                <div class="about-grid">
+                    <div class="card">
+                        <h3>Benim Yolculuğum</h3>
+                        <p>
+                            Merhaba! Ben Mehmet Zeki Işıldak. Bilecik Şeyh Edebali Üniversitesi Bilgisayar Mühendisliği öğrencisiyim. Teknolojiye olan tutkum, çocukluk yıllarımda bilgisayarlarla tanışmamla başladı ve bu tutku zamanla beni yazılım dünyasına yönlendirdi.
+                            Şu anda algoritmaların büyülü dünyasını keşfetmeye, kod yazmanın inceliklerini öğrenmeye ve dijital çözümler üretmeye odaklanmış durumdayım.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Yetenekler</h3>
+                        <div class="skills">
+                            <span class="skill">HTML</span>
+                            <span class="skill">CSS</span>
+                            <span class="skill">JavaScript</span>
+                            <span class="skill">SQL</span>
+                            <span class="skill">Web Tasarım</span>
+                            <span class="skill">Problem Çözme</span>
+                            <span class="skill">Yapay Zeka</span>
+                            <span class="skill">Takım Çalışması</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="projects">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Projelerim</h2>
+                    <p>
+                        Öğrenme sürecimde geliştirdiğim ve üzerinde çalıştığım küçük uygulama ve tasarım örnekleri.
+                    </p>
+                </div>
+
+                <div class="project-grid">
+                    <article class="project-card">
+                        <div class="icon"><i class="fa-solid fa-laptop-code"></i></div>
+                        <h3>Project 1</h3>
+                        <p>Web tasarım ve kullanıcı deneyimi üzerine çalışan modern bir arayüz geliştirme çalışmasıdır.</p>
+                        <a href="#">Daha fazla gör</a>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="icon"><i class="fa-solid fa-palette"></i></div>
+                        <h3>Project 2</h3>
+                        <p>Portföy ve kişisel marka yapısı için kullanıcı odaklı, estetik ve modern bir tasarım örneğidir.</p>
+                        <a href="#">Daha fazla gör</a>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="icon"><i class="fa-solid fa-brain"></i></div>
+                        <h3>Project 3</h3>
+                        <p>Yapay zeka ve teknoloji alanına ilgi duymamdan dolayı geliştirdiğim fikir ve çalışma örnekleridir.</p>
+                        <a href="#">Daha fazla gör</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="contact">
+            <div class="container">
+                <div class="contact-box">
+                    <h3>İletişime Geçmek İstersen</h3>
+                    <p>
+                        Yeni projeler, iş birliği fırsatları veya teknoloji üzerine konuşmak için benimle iletişime geçebilirsiniz.
+                    </p>
+                    <div class="contact-actions">
+                        <a href="https://www.linkedin.com/in/mehmet-zeki-%C4%B1%C5%9F%C4%B1ldak-399a71384" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-brands fa-linkedin"></i> LinkedIn
+                        </a>
+                        <a href="tel:+5431141371"><i class="fa-solid fa-phone"></i> +5431141371</a>
+                        <a href="mailto:mehmetzeki@example.com"><i class="fa-solid fa-envelope"></i> E-posta</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        © 2026 Mehmet Zeki Işıldak tarafından yapılmıştır
+    </footer>
